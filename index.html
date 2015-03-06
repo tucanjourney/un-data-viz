@@ -39,11 +39,11 @@ d3.select(".chart")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });
 
-d3.json("https://github.com/tucanjourney/topojson/master/examples/world-110m.json", function(error, world) {
+d3.json("https://github.com/tucanjourney/topojson/master/examples/world-110m.json", function(error, world-110m) {
   if (error) return console.error(error);
 
   svg.append("path")
-      .datum(topojson.feature(world, world.objects.subunits))
+      .datum(topojson.feature(world-110m, world-110m.objects.subunits))
       .attr("d", d3.geo.path().projection(d3.geo.mercator()));
 });
 
