@@ -19,6 +19,12 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 
 <script>
+var width = 960,
+    height = 1160;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
 
 var data = [4, 8, 15, 16, 23, 42];
 
@@ -33,10 +39,14 @@ d3.select(".chart")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });
 
-d3.json("https://github.com/tucanjourney/topojson/blob/master/examples/world-110m.json", function(error, world) {
+d3.json("https://github.com/tucanjourney/topojson/master/examples/world-110m.json", function(error, world) {
   if (error) return console.error(error);
-  console.log(world);
+
+  svg.append("path")
+      .datum(topojson.feature(world, world.objects.subunits))
+      .attr("d", d3.geo.path().projection(d3.geo.mercator()));
 });
+
 
 </script>
 </body>
