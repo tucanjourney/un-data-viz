@@ -12,9 +12,12 @@
 }
 
 </style>
+<body>
 <h1>Where is your happy place?</h1>
 <div class="chart"></div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
 <script>
 
 var data = [4, 8, 15, 16, 23, 42];
@@ -30,4 +33,10 @@ d3.select(".chart")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });
 
+d3.json("https://github.com/tucanjourney/topojson/blob/master/examples/world-110m.json", function(error, world) {
+  if (error) return console.error(error);
+  console.log(world);
+});
+
 </script>
+</body>
