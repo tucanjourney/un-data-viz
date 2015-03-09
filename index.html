@@ -39,7 +39,7 @@ d3.select(".chart")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });
 
-d3.json("countries.json", function(error, world-110m) {
+d3.json("countries.json", function(error, countries) {
   if (error) return console.error(error);
 
   svg.append("path")
