@@ -39,11 +39,11 @@ d3.select(".chart")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });
 
-d3.json("http://github.com/tucanjourney/topojson/master/examples/world-110m.json", function(error, world-110m) {
+d3.json("countries.json", function(error, world-110m) {
   if (error) return console.error(error);
 
   svg.append("path")
-      .datum(topojson.feature(world-110m, world-110m.objects.subunits))
+      .datum(topojson.feature(countries, countries.objects.subunits))
       .attr("d", d3.geo.path().projection(d3.geo.mercator()));
 });
 
